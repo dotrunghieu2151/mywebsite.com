@@ -23,7 +23,7 @@ ul.topnav li a {
 
 ul.topnav li a:hover:not(.active) {background-color: #111;}
 
-#active {background-color: #4CAF50;}
+.active {background-color: #4CAF50;}
 
 ul.topnav li.right {float: right;}
 .topnav .search-container {
@@ -53,10 +53,8 @@ ul.topnav li.right {float: right;}
   background: #ccc;
 }
 .footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
    width: 100%;
+   height:50px;
    background-color: #333;
    color: white;
    text-align: center;
@@ -136,6 +134,26 @@ ul.topnav li.right {float: right;}
   transform: rotate(330deg);
   animation-delay: 0s;
 }
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+}
+
+.pagination-active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.pagination-active) {background-color: #ddd;}
 @keyframes lds-spinner {
   0% {
     opacity: 1;
@@ -143,6 +161,13 @@ ul.topnav li.right {float: right;}
   100% {
     opacity: 0;
   }
+}
+.resInfo {
+    width:100%;
+}
+.resInfo img {
+    width:240px;
+    height:130px;
 }
 @media screen and (max-width: 600px) {
   .topnav .search-container {

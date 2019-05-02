@@ -1,0 +1,17 @@
+<div class="restaurant" >
+    <?php foreach($this->viewData["resInfo"] as $res):?>
+    <div class="resInfo">
+        <img src="<?= $res["image"] ?>">
+        <h4><a class="restaurant-detail" href="/mywebsite.com/restaurants/detail/<?= $res["urlName"] ?>">
+            <?= $res["name"] ?>
+            </a>
+        </h4>
+        <p><?= $res["openTime"] ?></p>
+        <p><?= $res["location"]?></p>
+        <p><?= $res["description"] ?></p>
+    </div>
+    <?php endforeach;?>
+   <div class="pagination"><?= $this->viewData["links"] ?></div>
+</div>
+
+

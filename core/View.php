@@ -28,4 +28,10 @@ class View {
             new errorHandler(404);
         }
     }
+    public static function paginate($totalPages,$currPage,$link){
+            ob_start();
+            require VIEW.DS."pagination.phtml";
+            $pagination = ob_get_clean();
+            return $pagination;
+        }
 }

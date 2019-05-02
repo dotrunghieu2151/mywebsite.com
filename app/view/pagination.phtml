@@ -1,0 +1,23 @@
+<?php if ($totalPages > 1): ?>   
+    <?php if ($currPage - 1 >= 1):?>
+    <a class="pagination-link"href="<?= $link ?><?= $currPage - 1?>">&laquo;</a>
+    <?php endif;?>
+    <?php foreach(range(1,$totalPages) as $page): ?>
+        <?php if ($page == 1 && $currPage !=1):?>
+    <a  class="pagination-link" href="<?= $link ?>1">1...</a>
+       <?php elseif ($page == 1 && $currPage == 1):?>
+    <a class="pagination-active pagination-link" href="<?= $link ?>1">1</a>
+        <?php elseif ($page >= $currPage -5 && $page <= $currPage + 5 && $page != $currPage):?>
+    <a class="pagination-link" href="<?= $link ?><?=$page?>"><?=$page?></a>
+        <?php elseif ( $page == $currPage):?>
+    <a class="pagination-active pagination-link" href="<?= $link ?><?=$page?>"><?=$page?></a>
+        <?php elseif($page == $totalPages && $currPage !=$totalPages):?>
+    <a  class="pagination-link"href="<?= $link ?><?=$totalPages?>">...<?=$totalPages?></a>
+       <?php elseif ($page == $totalPages && $currPage == $totalPages):?>
+    <a  class="pagination-active pagination-link" href="<?= $link ?><?=$totalPages?>"><?=$totalPages?></a>
+        <?php endif;?>
+    <?php endforeach; ?>
+    <?php if($currPage + 1 <= $totalPages):?>
+    <a  class="pagination-link" href="<?= $link ?><?= $currPage + 1?>">&raquo;</a>
+    <?php endif;?>
+<?php endif; ?>

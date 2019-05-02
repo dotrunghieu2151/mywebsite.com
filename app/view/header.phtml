@@ -5,19 +5,24 @@
         <meta name="viewport" 
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title><?= $this->viewData["pageTitle"] ?? 'error' ?></title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="/mywebsite.com/public/css/style.css" rel="stylesheet" type="text/css"/>
+        <script src="/mywebsite.com/public/js/script.js" type="text/javascript"></script>
     </head>
     <body> 
         <ul class="topnav">
-          <li><a id="<?= ($this->viewName ?? '') == "home".DS."index" ? "active" : '' ?>"
-                 href="http://localhost:81/mywebsite.com/home" class="webpage"
+          <li><a id="home"
+                 href="http://localhost:81/mywebsite.com/home" 
+                 class="webpage <?= preg_match("/home/",$this->viewName) ? "active" : '' ?>"
                  >Home</a></li>
-          <li><a href="http://localhost:81/mywebsite.com/home/search" class="webpage"id="searchInput"
-                 id="<?= ($this->viewName ?? '') == "home".DS."search" ? "active" : ''?>" >Search</a></li>
-          <li><a href="http://localhost:81/mywebsite.com/home/about" class="webpage"
-                 id="<?= ($this->viewName ?? '') == "home".DS."about" ? "active" : '' ?>">About</a></li>
+          <li><a href="http://localhost:81/mywebsite.com/restaurants" 
+                 class="webpage <?= preg_match("/restaurants/",$this->viewName) ? "active" : ''?>"
+                 id="restaurant">Restaurants</a></li>
+          <li><a href="http://localhost:81/mywebsite.com/about" 
+                 class="webpage <?= preg_match("/about/",$this->viewName) ? "active" : '' ?>"
+                 id="about">About</a></li>
           <form action="" method="POST">
               <input type="text" placeholder="username..." name="login-uName">
               <input type="text" name="login-pass" placeholder="pass...">
@@ -26,8 +31,8 @@
               <button type="button"><a href="#">Forget pass ?</a></button>
           </form>
           <div class="search-container">
-            <form action="" method="POST">
-              <input type="text" placeholder="Search.." name="search">
+            <form id="search-form" action="http://localhost:81/mywebsite.com/restaurants/search" method="POST">
+              <input type="text" placeholder="Search..." name="search" id="search-input">
               <button type="submit"><i class="fa fa-search"></i></button>
             </form>
           </div>

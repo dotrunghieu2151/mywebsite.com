@@ -6,7 +6,9 @@
             $this->view = new View($viewName,$viewData);
             $this->view->render();
         }
-        public function model() {
-            
+        public function model($modelName) {
+            if (file_exists(MODEL . DS . $modelName . ".php")) {
+                $this->model = new $modelName;
+            }            
         }
     }

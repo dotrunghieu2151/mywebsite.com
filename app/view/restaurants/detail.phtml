@@ -1,0 +1,15 @@
+<div class="restaurant" >
+    <?php $res = $this->viewData["detail"] ?>
+    <?php if ($res != "No results found"):?>
+    <div class="resInfo">
+        <img src="<?= $res[0]["image"] ?>">
+        <h4><?= $res[0]["name"] ?></h4>
+        <p><?= $res[0]["openTime"] ?></p>
+        <p><?= $res[0]["location"]?></p>
+        <p><?= $res[0]["description"] ?></p>
+    </div>
+    <?php else: ?>
+    <p><?= $res ?></p>
+    <?php endif;?>
+</div>
+
